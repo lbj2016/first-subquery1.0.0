@@ -19,8 +19,8 @@ dataSources:
           filter:
             module: balances
             method: Transfer
-        - handler: handleCall
-          kind: substrate/CallHandler
+        # - handler: handleCall
+        #   kind: substrate/CallHandler
 
 # dataSources:
 #   - kind: substrate/Runtime

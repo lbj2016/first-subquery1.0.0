@@ -17,16 +17,17 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
     transfer.blockNumber = event.block.block.header.number.toBigInt();
     transfer.fromAccount = fromAccount.toString();
     transfer.toAccount = toAccount.toString();
+    transfer.timestamp = event.block.timestamp;
     transfer.balanceChange = (balanceChange as Balance).toBigInt();
     await transfer.save();
 }
 
-export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
-    const record = await Transfer.get(extrinsic.block.block.header.hash.toString());
-    if (record) {
-        //Date type timestamp
-        logger.info("==timestamp=" + extrinsic.block.timestamp);
-        record.timestamp = extrinsic.block.timestamp;
-        await record.save();
-    }
-}
+// export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
+//     const record = await Transfer.get(extrinsic.block.block.header.hash.toString());
+//     if (record) {
+//         //Date type timestamp
+//         logger.info("==timestamp=" + extrinsic.block.timestamp);
+//         record.timestamp = extrinsic.block.timestamp;
+//         await record.save();
+//     }
+// }
