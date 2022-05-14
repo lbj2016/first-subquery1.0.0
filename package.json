@@ -1,7 +1,7 @@
 {
-  "name": "subquery-starter",
-  "version": "0.0.4",
-  "description": "This project can be use as a starting point for developing your SubQuery project",
+  "name": "test16",
+  "version": "1.0.0",
+  "description": "",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -b",
@@ -9,7 +9,6 @@
     "test": "jest",
     "codegen": "./node_modules/.bin/subql codegen"
   },
-
   "homepage": "https://github.com/subquery/subql-starter",
   "repository": "github:subquery/subql-starter",
   "files": [
@@ -17,7 +16,7 @@
     "schema.graphql",
     "project.yaml"
   ],
-  "author": "Ian He & Jay Ji",
+  "author": "a",
   "license": "MIT",
   "devDependencies": {
     "@polkadot/api": "^8",
@@ -26,6 +25,6 @@
     "@subql/cli": "latest"
   },
   "resolutions": {
-    "ipfs-unixfs":"6.0.6"
+    "ipfs-unixfs": "6.0.6"
   }
 }

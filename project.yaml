@@ -1,20 +1,16 @@
-specVersion: "0.2.0"
-
-name: "Subql-Starter"
-version: "0.0.0"
-description: ""
-repository: "https://github.com/subquery/subql-starter"
-
+specVersion: 0.2.0
+name: test16
+version: 1.0.0
+description: ''
+repository: ''
 schema:
-  file: "./schema.graphql"
-
+  file: ./schema.graphql
 network:
-  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
-  genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3' # Polkadot
-
+  endpoint: wss://polkadot.api.onfinality.io/public-ws
+  genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
 dataSources:
   - kind: substrate/Runtime
-    startBlock: 1
+    startBlock: 10159784
     mapping:
       file: ./dist/index.js
       handlers:
@@ -23,20 +19,21 @@ dataSources:
           filter:
             module: balances
             method: Transfer
+        - handler: handleCall
+          kind: substrate/CallHandler
 
 # dataSources:
 #   - kind: substrate/Runtime
-#     startBlock: 1
+#     startBlock: 10159784
 #     mapping:
-#       file: "./dist/index.js"
+#       file: ./dist/index.js
 #       handlers:
 #         - handler: handleBlock
 #           kind: substrate/BlockHandler
 #         - handler: handleEvent
 #           kind: substrate/EventHandler
-#           filter: #Filter is optional
+#           filter:
 #             module: balances
 #             method: Deposit
 #         - handler: handleCall
 #           kind: substrate/CallHandler
-
